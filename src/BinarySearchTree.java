@@ -1,6 +1,7 @@
 public class BinarySearchTree {
     Integer data;
-    private BinarySearchTree left,right;
+    private BinarySearchTree left;
+    private BinarySearchTree right;
 
     public BinarySearchTree getLeft()
     {
