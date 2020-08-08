@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        BinarySearchTree tree = new BinarySearchTree();
+        AVLTree tree = new AVLTree();
 
         Scanner input = new Scanner(System.in);
 
@@ -17,14 +17,14 @@ public class main {
                 {
                     System.out.println("Enter a insert value");
                     int val = input.nextInt();
-                    tree.Insert(val);
+                    tree.root = tree.Insert(tree.root,val);
                 }
                 break;
                 case 2:
                 {
                     System.out.println("Enter a delete value");
                     int val = input.nextInt();
-                    tree.Delete(val);
+                    //tree.Delete(val);
                 }
                 break;
                 case 3:
@@ -32,11 +32,11 @@ public class main {
                     System.out.println("1) Inorder 2) Postorder 3) preorder");
                     int m2 = input.nextInt();
                     if(m2 == 1)
-                        tree.printInorder();
+                        tree.printInorder(tree.root);
                     else if(m2 == 2)
-                        tree.printPostOrder();
+                        tree.printPostOrder(tree.root);
                     else
-                        tree.printPreOrder();
+                        tree.printPreOrder(tree.root);
                 }
                 break;
                 case 4:
@@ -47,6 +47,7 @@ public class main {
                 default:
                     System.out.println("Wrong Input");
             }
+            System.out.println();
         }
     }
 }
