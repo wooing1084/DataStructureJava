@@ -24,7 +24,7 @@ public class main {
                 {
                     System.out.println("Enter a delete value");
                     int val = input.nextInt();
-                    //tree.Delete(val);
+                    tree.root = tree.Delete(tree.root, val);
                 }
                 break;
                 case 3:

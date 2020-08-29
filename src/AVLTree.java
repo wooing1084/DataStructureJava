@@ -59,6 +59,7 @@ public class AVLTree {
         return Search(root.left , val);
     }
 
+    //root: now node, using for recursive function, val: value to be inserted
     public Node Insert(Node root, int val)
     {
         if(root == null) {
@@ -82,10 +83,42 @@ public class AVLTree {
         return root;
     }
 
-//    public Node Delete(Node node, int val)
-//    {
-//
-//    }
+    //root: now node, using for recursive function, val: value to be deleted
+    public Node Delete(Node root, int val)
+    {
+       if(root == null)
+           return null;
+
+       if(val > root.data)
+       {
+           root.right = Delete(root.right,val);
+           root = setBalance(root);
+       }
+       else if(val < root.data)
+       {
+           root.left = Delete(root.left,val);
+           root = setBalance(root);
+       }
+       else
+       {
+           if(root.left != null)
+           {
+               Node temp = root.left;
+
+               while(temp.right != null)
+                    temp = temp.right;
+
+               root.data = temp.data;
+               root.left = Delete(root.left,temp.data);
+
+               root = setBalance(root);
+           }
+           else
+               return root.right;
+       }
+
+       return root;
+    }
 
     private Node setBalance(Node root)
     {
