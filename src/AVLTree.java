@@ -82,10 +82,15 @@ public class AVLTree {
         return root;
     }
 
+//    public Node Delete(Node node, int val)
+//    {
+//
+//    }
+
     private Node setBalance(Node root)
     {
         int bf = getBf(root);
-        if(bf >= -2)
+        if(bf >= 2)
         {
             if(getBf(root.left) >= 1)
                 root = LL(root);
@@ -180,13 +185,13 @@ public class AVLTree {
     {
         if(root.left != null)
             printInorder(root.left);
-        System.out.print(this.root.data + " ");
+        System.out.print(root.data + " ");
         if(root.right != null)
             printInorder(root.right);
     }
     public void printPreOrder(Node root)
     {
-        System.out.print(this.root.data + " ");
+        System.out.print(root.data + " ");
         if(root.left != null)
             printPreOrder(root.left);
         if(root.right != null)
@@ -198,6 +203,6 @@ public class AVLTree {
             printPostOrder(root.left);
         if(root.right != null)
             printPostOrder(root.right);
-        System.out.print(this.root.data + " ");
+        System.out.print(root.data + " ");
     }
 }
